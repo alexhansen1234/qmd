@@ -3355,7 +3355,10 @@ if (isMain) {
 
   if (cli.command !== "mcp") {
     await disposeDefaultLlamaCpp();
-    process.exit(0);
+    // process.exit(0) forces synchronous unload of the llama-cpp native
+    // addon, which segfaults during GPU/driver teardown. Setting exitCode
+    // lets the event loop drain naturally after dispose. See #129.
+    process.exitCode = 0;
   }
 
 } // end if (main module)
