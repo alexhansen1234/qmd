@@ -7,7 +7,6 @@
 #     "transformers>=4.45.0",
 #     "accelerate>=0.24.0",
 #     "huggingface_hub>=0.20.0",
-#     "trackio",
 #     "nvidia-ml-py",
 #     "datasets",
 #     "bitsandbytes",
